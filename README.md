@@ -91,7 +91,7 @@ export NAME=name_of_your_experiment
 
 python train_yolo.py --dataset_yaml_path $DATASET_YAML_PATH --batch $BATCH --epochs $EPOCHS --lr0 $LR --project $PROJECT --name $NAME
 ```
-Result (e.g. best weights, metrics, scalars) will be saved to `/path/to/save/training/runs`.
+Result (such as best weights, metrics, scalars) will be saved to `/path/to/save/training/runs`.
 
 
 
