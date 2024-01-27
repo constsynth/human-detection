@@ -1,7 +1,23 @@
 # Human-detection with YOLOv8
 This is a project with which you can detect people in images taken from UAVs. You can use either a pre-trained model or train it yourself.
-## Metrics and losses of pre-trained YOLOv8-s
+## Metrics and losses of pre-trained YOLOv8-s for human-detection
+### Graphs of mAPs and errors (box and classification)
+<img src="H:\human-detection\training_runs\training_yolo_1706363352.6516602\results.png" alt="Hello!">
 
+### There is a PR-curve below
+
+<img src="training_runs/training_yolo_1706363352.6516602/PR_curve.png" alt="Hello!">
+
+### Predictions based on some examples from the validation dataset
+
+<img src="training_runs/training_yolo_1706363352.6516602/val_batch0_pred.jpg" alt="Hello!">
+
+All augmentations that were applied to the input images during training were taken from YOLv8 `default.yaml` file.
+
+Input dataset was made by combining three datasets from [Roboflow](https://universe.roboflow.com/):
+* [First](https://universe.roboflow.com/sakarya/kontrol-gx8vv/dataset/2)
+* [Second](https://universe.roboflow.com/ssb/ssb_sakarya)
+* [Third](https://universe.roboflow.com/j3ssus/pedestrian-detection-uni/browse?queryText=&pageSize=50&startingIndex=0&browseQuery=true)
 ## Getting started
 Before you start working, you need to install all the working dependencies.
 ```commandline
@@ -9,7 +25,6 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 ## Inference
-
 ### Inference on a single image
 If you want to run the model on a single image, then you need to run the following Python code:
 ```python
@@ -66,6 +81,10 @@ python tracking_on_video.py --path_to_model $PATH_TO_MODEL --path_to_video $PATH
 ```
 
 ## Training
+### You can create your own dataset (*optional*)
+
+You can make your own dataset. By clicking on the [link](https://drive.google.com/file/d/1dAjNMyxm8inWyXslofD0axKiXIo5DS4y/view?usp=drive_link), you can download a smaller version Stanford Campus Dataset (downloaded and zipped from Kaggle), then use the `video_to_frames` method from the `utils.py` file and slice the video clips from the dataset into frames. First 100 frames of the video will be saved by default.
+
 If you want to train your own YOLOv8 human-detection model, you can do this using `yolo_train.py` file.
 ```python
 from train_yolo import train_yolo
@@ -91,7 +110,7 @@ export NAME=name_of_your_experiment
 
 python train_yolo.py --dataset_yaml_path $DATASET_YAML_PATH --batch $BATCH --epochs $EPOCHS --lr0 $LR --project $PROJECT --name $NAME
 ```
-Result (such as best weights, metrics, scalars) will be saved to `/path/to/save/training/runs`.
+Result (such as best weights, metrics, scalars) will be saved to `/path/to/save/training/runs/name_of_your_experiment`.
 
 
 

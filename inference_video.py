@@ -13,7 +13,7 @@ def upload_model(path_to_model: str = None, device: str = 'cuda'):
     return model
 
 
-def inference(path_to_model: str = None, path_to_video: str = './defaults/vid_1.mp4',
+def inference(path_to_model: str = None, path_to_video: str = './defaults/video_1.mp4',
               project: str = './inference_runs', name: str = f'inference_yolo_{time()}', confidence: float = 0.5,
               show_conf: bool = True, show_labels: bool = True,
               save_result: bool = False, show_result: bool = True) -> tp.NoReturn:
@@ -26,9 +26,11 @@ def inference(path_to_model: str = None, path_to_video: str = './defaults/vid_1.
     else:
         models_folder = './models'
         os.makedirs(models_folder, exist_ok=True)
-        if not os.path.exists(f"{models_folder}/yolov8s-human"):
+        if not os.path.exists(f"{models_folder}/yolov8s-human-v2.pt"):
             path_to_yolo = download_pretrained_yolo()
             model = upload_model(path_to_yolo, device=device)
+        else:
+            model = upload_model(f"{models_folder}/yolov8s-human-v2.pt", device=device)
     cap = cv2.VideoCapture(path_to_video)
 
     while True:

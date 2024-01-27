@@ -4,7 +4,6 @@ from collections import defaultdict
 from ultralytics import YOLO
 import torch
 from math import dist
-from time import time
 import os
 from utils import download_pretrained_yolo
 import argparse
@@ -26,7 +25,8 @@ def estimate_speed(point_1, point_2, ppm_rate: int = 8, fps: int = 15) -> int:
     return int(speed)
 
 
-def tracking(path_to_model: str = None, path_to_video: str = None, confidence: float = 0.5) -> tp.NoReturn:
+def tracking(path_to_model: str = None, path_to_video: str = './defaults/video_1.mp4',
+             confidence: float = 0.5) -> tp.NoReturn:
 
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     if path_to_model is not None:
@@ -34,9 +34,11 @@ def tracking(path_to_model: str = None, path_to_video: str = None, confidence: f
     else:
         models_folder = './models'
         os.makedirs(models_folder, exist_ok=True)
-        if not os.path.exists(f"{models_folder}/yolov8s-human"):
+        if not os.path.exists(f"{models_folder}/yolov8s-human-v2.pt"):
             path_to_yolo = download_pretrained_yolo()
             model = upload_model(path_to_yolo, device=device)
+        else:
+            model = upload_model(f"{models_folder}/yolov8s-human-v2.pt", device=device)
     cap = cv2.VideoCapture(path_to_video)
 
     track_history = defaultdict(lambda: [])

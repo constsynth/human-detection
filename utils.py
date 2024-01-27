@@ -4,7 +4,8 @@ import uuid
 import requests
 
 
-def download_pretrained_yolo(link: str = '', model_name: str = 'yolov8s-human') -> str:
+def download_pretrained_yolo(link: str = 'https://raw.githubusercontent.com/constsynth/models/master/yolo/yolov8s-human-v2.pt',
+                             model_name: str = 'yolov8s-human-v2.pt') -> str:
 
     """
         Method to download pretrained YOLOv8
