@@ -50,7 +50,7 @@ from inference_video import inference
 
 inference(
     path_to_model=None, # If None, pretrained yolo will be downloaded, else your model path 
-    path_to_video='./defaults/vid_1.mp4', # Choose your video path
+    path_to_video='./defaults/video_1.mp4', # Choose your video path
 )
 ```
 
@@ -68,7 +68,7 @@ from tracking_on_video import tracking
 
 tracking(
     path_to_model=None, # If None, pretrained yolo will be downloaded, else your model path 
-    path_to_video='./defaults/vid_1.mp4', # Choose your video path
+    path_to_video='./defaults/video_1.mp4', # Choose your video path
 )
 ```
 
@@ -85,7 +85,7 @@ python tracking_on_video.py --path_to_model $PATH_TO_MODEL --path_to_video $PATH
 
 You can make your own dataset. By clicking on the [link](https://drive.google.com/file/d/1dAjNMyxm8inWyXslofD0axKiXIo5DS4y/view?usp=drive_link), you can download a smaller version of Stanford Campus Dataset (downloaded and zipped from Kaggle), then use the `video_to_frames` method from the `utils.py` file and slice the video clips from the dataset into frames. First 100 frames of the video will be saved by default.
 
-If you want to train your own YOLOv8 human-detection model, you can do this using `yolo_train.py` file.
+If you want to train your own YOLOv8 human-detection model, you can do this using `train_yolo.py` file.
 ```python
 from train_yolo import train_yolo
 
