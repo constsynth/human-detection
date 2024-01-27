@@ -31,10 +31,7 @@ def video_to_frames(path_to_video: str = None, output_path: str = None):
         None
     """
 
-    try:
-        os.makedirs(output_path, exist_ok=True)
-    except OSError:
-        pass
+    os.makedirs(output_path, exist_ok=True)
 
     cap = cv2.VideoCapture(path_to_video)
     video_length = int(cap.get(cv2.CAP_PROP_FRAME_COUNT)) - 1
