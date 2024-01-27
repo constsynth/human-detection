@@ -2,15 +2,15 @@
 This is a project with which you can detect people in images taken from UAVs. You can use either a pre-trained model or train it yourself.
 ## Metrics and losses of pre-trained YOLOv8-s for human-detection
 ### Graphs of mAPs and errors (box and classification)
-<img src="H:\human-detection\training_runs\training_yolo_1706363352.6516602\results.png" alt="Hello!">
+<img src="images/results.png" alt="Hello!">
 
 ### There is a PR-curve below
 
-<img src="training_runs/training_yolo_1706363352.6516602/PR_curve.png" alt="Hello!">
+<img src="images/PR_curve.png" alt="Hello!">
 
 ### Predictions based on some examples from the validation dataset
 
-<img src="training_runs/training_yolo_1706363352.6516602/val_batch0_pred.jpg" alt="Hello!">
+<img src="images/val_batch0_pred.jpg" alt="Hello!">
 
 All augmentations that were applied to the input images during training were taken from YOLv8 `default.yaml` file.
 
