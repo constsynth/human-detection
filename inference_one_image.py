@@ -25,11 +25,11 @@ def inference(path_to_model: str = None, path_to_image: str = '/defaults/img_1.j
     else:
         models_folder = './models'
         os.makedirs(models_folder, exist_ok=True)
-        if not os.path.exists(f"{models_folder}/yolov8s-human-v2.pt"):
+        if not os.path.exists(f"{models_folder}/yolov8s-human-v3.pt"):
             path_to_yolo = download_pretrained_yolo()
             model = upload_model(path_to_yolo, device=device)
         else:
-            model = upload_model(f"{models_folder}/yolov8s-human-v2.pt", device=device)
+            model = upload_model(f"{models_folder}/yolov8s-human-v3.pt", device=device)
 
 
     results = model.predict(source=path_to_image,
@@ -58,7 +58,6 @@ if __name__ == "__main__":
     parser.add_argument("--save_result", type=bool, required=False, default=False)
     parser.add_argument("--show_result", type=bool, required=False, default=True)
     args = parser.parse_args()
-    print(args)
     inference(**vars(args))
 
 

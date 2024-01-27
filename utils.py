@@ -4,8 +4,8 @@ import uuid
 import requests
 
 
-def download_pretrained_yolo(link: str = 'https://raw.githubusercontent.com/constsynth/models/master/yolo/yolov8s-human-v2.pt',
-                             model_name: str = 'yolov8s-human-v2.pt') -> str:
+def download_pretrained_yolo(link: str = 'https://raw.githubusercontent.com/constsynth/models/master/yolo/yolov8s-human-v3.pt',
+                             model_name: str = 'yolov8s-human-v3.pt') -> str:
 
     """
         Method to download pretrained YOLOv8
@@ -44,14 +44,3 @@ def video_to_frames(path_to_video: str = None, output_path: str = None):
         if not ret:
             break
         cv2.imwrite(f'{output_path}/{uuid.uuid4()}.jpg', frame)
-
-#
-# if __name__ == "__main__":
-#     base_path = 'stanforddata/videos/{name}/{video_num}/video.mp4'
-#     base_output_path = './output_frames'
-#     names = os.listdir('./stanforddata/videos')
-#     for name in names:
-#         for num in range(3):
-#             path_to_video = base_path.replace('{name}', name).replace('{video_num}', f'video{num}')
-#             output_path = f'{base_output_path}/{name}/video{num}'
-#             video_to_frames(path_to_video, output_path)

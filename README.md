@@ -10,9 +10,9 @@ This is a project with which you can detect people in images taken from UAVs. Yo
 
 ### Predictions based on some examples from the validation dataset
 
-<img src="images/val_batch0_pred.jpg" alt="Hello!">
+<img src="images/val_batch1_pred.jpg" alt="Hello!">
 
-All augmentations that were applied to the input images during training were taken from YOLv8 `default.yaml` file.
+All augmentations that were applied to the input images during training were taken from YOLOv8 `default.yaml` file.
 
 Input dataset was made by combining three datasets from [Roboflow](https://universe.roboflow.com/):
 * [First](https://universe.roboflow.com/sakarya/kontrol-gx8vv/dataset/2)
@@ -83,7 +83,7 @@ python tracking_on_video.py --path_to_model $PATH_TO_MODEL --path_to_video $PATH
 ## Training
 ### You can create your own dataset (*optional*)
 
-You can make your own dataset. By clicking on the [link](https://drive.google.com/file/d/1dAjNMyxm8inWyXslofD0axKiXIo5DS4y/view?usp=drive_link), you can download a smaller version Stanford Campus Dataset (downloaded and zipped from Kaggle), then use the `video_to_frames` method from the `utils.py` file and slice the video clips from the dataset into frames. First 100 frames of the video will be saved by default.
+You can make your own dataset. By clicking on the [link](https://drive.google.com/file/d/1dAjNMyxm8inWyXslofD0axKiXIo5DS4y/view?usp=drive_link), you can download a smaller version of Stanford Campus Dataset (downloaded and zipped from Kaggle), then use the `video_to_frames` method from the `utils.py` file and slice the video clips from the dataset into frames. First 100 frames of the video will be saved by default.
 
 If you want to train your own YOLOv8 human-detection model, you can do this using `yolo_train.py` file.
 ```python

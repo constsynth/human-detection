@@ -26,11 +26,11 @@ def inference(path_to_model: str = None, path_to_video: str = './defaults/video_
     else:
         models_folder = './models'
         os.makedirs(models_folder, exist_ok=True)
-        if not os.path.exists(f"{models_folder}/yolov8s-human-v2.pt"):
+        if not os.path.exists(f"{models_folder}/yolov8s-human-v3.pt"):
             path_to_yolo = download_pretrained_yolo()
             model = upload_model(path_to_yolo, device=device)
         else:
-            model = upload_model(f"{models_folder}/yolov8s-human-v2.pt", device=device)
+            model = upload_model(f"{models_folder}/yolov8s-human-v3.pt", device=device)
     cap = cv2.VideoCapture(path_to_video)
 
     while True:
