@@ -6,7 +6,7 @@ import argparse
 
 
 def train_yolo(dataset_yaml_path: str = None, imgsz: int = 640, batch: int = 8,
-               lr0: float = 0.0001, optimizer: str = 'Adam',
+               epochs: int = 100, lr0: float = 0.0001, optimizer: str = 'Adam',
                project: str = './training_runs', name: str = f'training_yolo_{time()}'):
     os.makedirs(project, exist_ok=True)
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -17,9 +17,9 @@ def train_yolo(dataset_yaml_path: str = None, imgsz: int = 640, batch: int = 8,
                 data=dataset_yaml_path,
                 imgsz=imgsz,
                 batch=batch,
-                epochs=100,
-                optimizer=optimizer,
+                epochs=epochs,
                 lr0=lr0,
+                optimizer=optimizer,
                 project=project,
                 name=name)
 

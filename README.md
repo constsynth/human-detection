@@ -93,6 +93,7 @@ train_yolo(
     dataset_yaml_path='/path/to/your/dataset.yaml',
     imgsz=640, # Choose your input image size
     batch=8, #Choose your batch size
+    epochs=100, #Choose the number of epochs
     lr0=0.0001, #Choose your initial learning rate
     project='/path/to/save/training/runs',
     name='name_of_your_experiment'
