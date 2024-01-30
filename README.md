@@ -578,8 +578,8 @@ general_dataset
 ```
 * The last thing left to do is to create a training `data.yaml` file. To do this, go to the `general_dataset` folder and create a `data.yaml` file in it. Configure it as follows:
 ```yaml
-train: ./general_dataset/train/images
-val: ./general_dataset/valid/images
+train: /absolute/path/to/general_dataset/train/images
+val: /absolute/path/to/general_dataset/valid/images
 
 nc: 1
 names: ['person']
