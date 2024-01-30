@@ -609,8 +609,8 @@ train_yolo(
     batch=16, #Select batch size
     epochs=100, #Select the number of epochs
     lr0=0.0001, #Select the initial learning rate
-    project='/path/to/save/training/runs',
-    name='name_of_your_experiment'
+    project='/path/to/save/training/runs', # Do not configure to save with default path
+    name='name_of_your_experiment' # Do not configure to save with default name
 )
 ```
 
